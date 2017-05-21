@@ -214,7 +214,7 @@ public class jDialogEditarProducto extends javax.swing.JDialog {
             if(!this.posicion.equals(nuevaPosicion))
                 ctrl.EliminarProducto(this.posicion);
                         
-            ctrl.AgregarProducto(nuevaPosicion, producto);
+            ctrl.ActualizarProducto(nuevaPosicion, producto);
                         
             this.dispose();
         } catch (NumberFormatException | HeadlessException e) {

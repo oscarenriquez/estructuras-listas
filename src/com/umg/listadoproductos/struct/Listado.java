@@ -16,6 +16,8 @@ public interface Listado {
     
     public void agregar(Producto elemento);
     
+    public void agregar(Integer posicion, Producto elemento);
+    
     public Producto obtener(Integer posicion);
     
     public Map<String, Object> obtener(Producto elemento);

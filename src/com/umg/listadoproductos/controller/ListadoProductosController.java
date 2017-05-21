@@ -43,12 +43,16 @@ public class ListadoProductosController {
     
     public void AgregarProducto(Integer posicion, Producto producto) {        
         if(posicion != null) {
-            listadoProductos.colocar(posicion, producto);
+            listadoProductos.agregar(posicion, producto);
         } else {
             listadoProductos.agregar(producto);
         }        
     }
 
+    public void ActualizarProducto(Integer posicion, Producto producto) {
+        listadoProductos.colocar(posicion, producto);
+    }
+    
     public Map<String, Object> BuscarProductoPorCodigo(Integer codigo) {
         Producto producto = new Producto();
         producto.setCodigo(codigo);

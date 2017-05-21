@@ -247,6 +247,8 @@ public class jFrameMain extends javax.swing.JFrame {
                 editarProducto.setResizable(false);
                 editarProducto.setLocationRelativeTo(this);
                 editarProducto.setVisible(true);
+                
+                textCodigoSearch.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "Producto no existe!!", "ERROR!!!", JOptionPane.ERROR_MESSAGE);
             }

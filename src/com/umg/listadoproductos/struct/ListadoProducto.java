@@ -21,7 +21,7 @@ public class ListadoProducto implements Listado {
     public void agregar(Producto elemento) {
         cabecera = agregarListado(cabecera, elemento);
     }
-
+    
     private NodoProducto agregarListado(NodoProducto nodo, Producto elemento) {
         if (nodo == null) {
             nodo = new NodoProducto();
@@ -33,6 +33,28 @@ public class ListadoProducto implements Listado {
         }
 
         return nodo;
+    }
+
+    @Override
+    public void agregar(Integer posicion, Producto elemento) {
+        int posicionActual = 0;
+        cabecera = agregarListado(cabecera, elemento, posicion, posicionActual);
+    }
+    
+    private NodoProducto agregarListado(NodoProducto cabecera, Producto producto, Integer posicion, int posicionActual) {
+        if (posicion.equals(posicionActual)) {
+            NodoProducto nodo = new NodoProducto();
+            nodo.setProducto(producto);
+            nodo.setSiguiente(cabecera);            
+            return nodo;
+        } else {
+            posicionActual++;
+            if (posicionActual <= posicion) {
+                NodoProducto nodoProducto = agregarListado(cabecera.getSiguiente(), producto, posicion, posicionActual);
+                cabecera.setSiguiente(nodoProducto);
+            }
+        }
+        return cabecera;
     }
 
     @Override
@@ -133,7 +155,7 @@ public class ListadoProducto implements Listado {
             return false;
         }
 
-        NodoProducto nodo = obtenerNodo(posicion); // Obtener por posicion
+        NodoProducto nodo = obtenerNodo(posicion); // Obtener por posicion                
 
         if (nodo != null) {
             nodo.setProducto(elemento);
